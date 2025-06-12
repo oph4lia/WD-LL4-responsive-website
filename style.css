@@ -39,7 +39,29 @@ header {
 .hero {
   text-align: center;
   padding: 40px 20px 30px 20px;
-  background: #e0f7e9;
+  /* Remove solid background color so the image shows */
+  /* background: #e0f7e9; */
+  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80');
+  background-size: cover;      /* Make the image cover the whole section */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat;/* Do not repeat the image */
+  position: relative;          /* For overlay if needed */
+}
+
+/* Add a lighter, more transparent overlay to make text readable but show the image */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(224, 247, 233, 0.5); /* Lighter and more transparent overlay */
+  z-index: 0;
+}
+
+/* Make sure hero text appears above the overlay */
+.hero h1,
+.hero p {
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
@@ -152,6 +174,43 @@ header {
 /* Enable smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
+}
+
+/* About section styles */
+.about {
+  background: #fff; /* White background for contrast */
+  padding: 30px 15px; /* Space inside the section */
+  max-width: 800px;   /* Limit width for better readability */
+  margin: 30px auto;  /* Center the section and add space above/below */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08); /* Soft shadow */
+  font-family: 'Raleway', Arial, sans-serif; /* Use Raleway font for About section */
+}
+
+.about h2 {
+  text-align: center; /* Center the heading */
+  margin-bottom: 15px; /* Space below the heading */
+}
+
+.about p {
+  font-size: 1.08em; /* Slightly larger text for readability */
+  color: #333;       /* Darker text for contrast */
+  text-align: center; /* Center the paragraph */
+}
+
+.about ul {
+  margin: 18px auto 0 auto; /* Space above the list, center it */
+  padding-left: 0;          /* Remove default left padding */
+  max-width: 500px;         /* Limit width for better look */
+  display: table;           /* Center the list as a block */
+}
+
+.about li {
+  margin-bottom: 10px;      /* Space between list items */
+  font-size: 1em;           /* Normal font size */
+  color: #2e8b57;           /* Use theme color for list items */
+  text-align: left;         /* Keep text left for readability */
+  display: list-item;       /* Ensure bullets show */
 }
 
 /* Responsive styles for screens 600px and wider */
